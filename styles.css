@@ -338,3 +338,19 @@ button, input { font-family: inherit; }
   .temporada .foto { min-height: 400px; }
   .temporada .foto > img { object-position: 80% 40%; }
 }
+
+/* ---------- 20. CARTA FIRMA DESLIZABLE EN CELULAR (pedido del dueño 2026-10-30) ----------
+   En celular los 4 productos se deslizan de lado: cada uno es una tarjeta completa (foto, nombre, precio y pedido),
+   y asoma el borde de la siguiente para que se entienda que hay más. Así el precio no se confunde con el producto de abajo. */
+@media (max-width: 600px) {
+  .productos {
+    display: flex; gap: 16px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory; scroll-padding-left: var(--gutter);
+    margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter) 10px;
+    scrollbar-width: none;
+  }
+  .productos::-webkit-scrollbar { display: none; }
+  .producto { flex: 0 0 74%; scroll-snap-align: start; }
+  .producto h3 { font-size: 20px; }
+  .productos::after { content: ""; flex: 0 0 1px; }
+}
