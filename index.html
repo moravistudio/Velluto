@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velluto — Pastelería de autor</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="description" content="Velluto, pastelería de autor: tortas, tartas, postres individuales y bombones elaborados a mano con cacao de origen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- =============== HEADER + HERO =============== -->
+<div class="zona-hero">
+  <header class="header contenedor">
+    <a href="#" class="marca" aria-label="Velluto, inicio">
+      <img class="marca__logo" src="img/monograma.png" alt="" width="44" height="44">
+      <span class="marca__texto"><span class="marca__nombre">Velluto</span>
+      <span class="marca__sub">Pastelería</span></span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#" aria-current="page">Inicio</a>
+      <a href="#coleccion">Carta</a>
+      <a href="#filosofia">Filosofía</a>
+      <a href="#temporada">Temporada</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="header__acciones">
+      <a href="https://wa.me/51999999999?text=Hola%20Velluto%2C%20quisiera%20hacer%20una%20consulta." class="header__cuenta" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="#encargos" class="boton boton--cacao">Hacer un pedido <span aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <section class="hero contenedor">
+    <div class="hero__texto">
+      <span class="eyebrow hero__eyebrow">Pastelería de autor</span>
+      <h1 class="hero__titulo">El oficio de<br>lo <em>exquisito</em></h1>
+      <p class="hero__desc">Repostería de autor con cacao de origen y técnica clásica. Piezas pensadas para compartir despacio.</p>
+      <div class="hero__ctas">
+        <a href="#coleccion" class="boton boton--dorado">Explorar la carta <span aria-hidden="true">→</span></a>
+        <a href="#filosofia" class="boton boton--borde-claro">Nuestra filosofía</a>
+      </div>
+      <span class="hero__nota">Entrega el mismo día en pedidos antes de las 12:00</span>
+    </div>
+
+    <!-- FOTO: img/hero.jpg -->
+    <div class="foto hero__foto">
+      <span class="foto__etiqueta">Fotografía · Portada · horizontal 16:10</span>
+      <img src="img/hero.jpg" alt="Tarta de cacao y caramelo salado" onload="this.parentElement.classList.add('con-foto')" onerror="this.remove()">
+      <img class="hero__img-movil" src="img/hero-movil.jpg" alt="Tarta de cacao y caramelo salado" loading="lazy" onload="this.parentElement.classList.add('con-foto','con-movil')" onerror="this.remove()">
+      <div class="destacada">
+        <span class="destacada__punto"></span><span class="destacada__linea"></span>
+        <span class="destacada__texto"><em>Pieza destacada</em>Tarta de cacao y<br>caramelo salado</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<main>
+<!-- =============== PANEL MARFIL: PILARES + FILOSOFÍA =============== -->
+<div id="filosofia" class="panel-marfil">
+  <section class="pilares contenedor" aria-label="Nuestros pilares">
+    <div class="pilar"><span class="pilar__num">(01)</span><h3>Hecho en pequeños lotes</h3><p>Cada pieza es única.</p></div>
+    <div class="pilar"><span class="pilar__num">(02)</span><h3>Sabores inesperados</h3><p>La pastelería, reinterpretada.</p></div>
+    <div class="pilar"><span class="pilar__num">(03)</span><h3>Origen responsable</h3><p>Del productor a su mesa.</p></div>
+  </section>
+
+  <section class="filosofia contenedor">
+    <!-- FOTO: img/taller.jpg -->
+    <div class="foto foto--chocolate filosofia__foto">
+      <span class="foto__etiqueta">Fotografía · Taller / proceso · 6:5</span>
+      <img src="img/taller.jpg" alt="Nuestro taller de pastelería" onload="this.parentElement.classList.add('con-foto')" onerror="this.remove()">
+    </div>
+    <div class="filosofia__texto">
+      <span class="eyebrow eyebrow--dorado">Filosofía</span>
+      <h2 class="titulo-seccion">El sabor de<br><em>la paciencia</em></h2>
+      <p class="parrafo">Fermentaciones lentas, cacao tostado en su punto y cremas montadas al momento. En nuestro taller el tiempo es un ingrediente más, y se nota en cada bocado.</p>
+      <p class="parrafo">Trabajamos con productores locales y con una carta corta que cambia con la estación.</p>
+      <a href="https://wa.me/51999999999?text=Hola%20Velluto%2C%20quisiera%20conocer%20el%20taller%20y%20coordinar%20una%20visita." class="boton boton--borde-oscuro" target="_blank" rel="noopener">Conocer el taller <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</div>
+
+<!-- =============== CARTA FIRMA (id y clases siguen llamándose "coleccion") =============== -->
+<section id="coleccion" class="coleccion">
+  <div class="contenedor coleccion__inner">
+    <div class="cabecera">
+      <div><span class="eyebrow">Carta firma</span><h2 class="titulo-seccion">Pruebe lo <em>extraordinario</em></h2></div>
+      <a href="#lineas" class="enlace-linea">Ver toda la carta</a>
+    </div>
+    <div class="productos">
+      <article class="producto">
+        <div class="foto"><span class="foto__etiqueta">Fotografía · 4:5</span><img src="img/producto-01.jpg" alt="Tarta de cacao y avellana" onload="this.parentElement.classList.add('con-foto')" onerror="this.remove()"></div>
+        <div><h3>Tarta de cacao y avellana</h3><p>Praliné, ganache 70 % y sal de mar.</p></div>
+        <div class="producto__pie"><span class="producto__precio">S/ 165</span><a href="https://wa.me/51999999999?text=Hola%20Velluto%2C%20quisiera%20pedir%3A%20Tarta%20de%20cacao%20y%20avellana%20(S%2F%20165)." target="_blank" rel="noopener">Pedir por WhatsApp</a></div>
+      </article>
+      <article class="producto">
+        <div class="foto"><span class="foto__etiqueta">Fotografía · 4:5</span><img src="img/producto-02.jpg" alt="Entremet de frambuesa" onload="this.parentElement.classList.add('con-foto')" onerror="this.remove()"></div>
+        <div><h3>Entremet de frambuesa</h3><p>Chocolate blanco y almendra.</p></div>
+        <div class="producto__pie"><span class="producto__precio">S/ 48</span><a href="https://wa.me/51999999999?text=Hola%20Velluto%2C%20quisiera%20pedir%3A%20Entremet%20de%20frambuesa%20(S%2F%2048)." target="_blank" rel="noopener">Pedir por WhatsApp</a></div>
+      </article>
+      <article class="producto">
+        <div class="foto"><span class="foto__etiqueta">Fotografía · 4:5</span><img src="img/producto-03.jpg" alt="Bombones de temporada" onload="this.parentElement.classList.add('con-foto')" onerror="this.remove()"></div>
+        <div><h3>Bombones de temporada</h3><p>Caja de doce, pintados a mano.</p></div>
+        <div class="producto__pie"><span class="producto__precio">S/ 95</span><a href="https://wa.me/51999999999?text=Hola%20Velluto%2C%20quisiera%20pedir%3A%20Bombones%20de%20temporada%20(S%2F%2095)." target="_blank" rel="noopener">Pedir por WhatsApp</a></div>
+      </article>
+      <article class="producto">
+        <div class="foto"><span class="foto__etiqueta">Fotografía · 4:5</span><img src="img/producto-04.jpg" alt="Tarta de limón y merengue" onload="this.parentElement.classList.add('con-foto')" onerror="this.remove()"></div>
+        <div><h3>Tarta de limón y merengue</h3><p>Sablée bretón y merengue italiano.</p></div>
+        <div class="producto__pie"><span class="producto__precio">S/ 145</span><a href="https://wa.me/51999999999?text=Hola%20Velluto%2C%20quisiera%20pedir%3A%20Tarta%20de%20lim%C3%B3n%20y%20merengue%20(S%2F%20145)." target="_blank" rel="noopener">Pedir por WhatsApp</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =============== LÍNEAS DE REPOSTERÍA =============== -->
+<section id="lineas" class="lineas">
+  <div class="contenedor lineas__inner">
+    <div class="cabecera">
+      <h2 class="titulo-seccion">Líneas de <em>repostería</em></h2>
+      <div class="pestanas" role="tablist" aria-label="Líneas">
+        <button role="tab" aria-selected="true">Todas</button>
+        <button role="tab" aria-selected="false">Celebración</button>
+        <button role="tab" aria-selected="false">Individuales</button>
+        <button role="tab" aria-selected="false">Regalo</button>
+      </div>
+    </div>
+    <div class="lineas__grid">
+      <div class="linea">
+        <span class="foto foto--chocolate" style="display:block"><span class="foto__etiqueta">Fotografía · 3:4</span><img src="img/linea-celebracion.jpg" alt="" onload="this.parentElement.classList.add('con-foto')" onerror="this.remove()"></span>
+        <span class="linea__pie"><span class="linea__nombre">Tortas de celebración</span></span>
+      </div>
+      <div class="linea">
+        <span class="foto foto--chocolate" style="display:block"><span class="foto__etiqueta">Fotografía · 3:4</span><img src="img/linea-individuales.jpg" alt="" onload="this.parentElement.classList.add('con-foto')" onerror="this.remove()"></span>
+        <span class="linea__pie"><span class="linea__nombre">Postres individuales</span></span>
+      </div>
+      <div class="linea">
+        <span class="foto foto--chocolate" style="display:block"><span class="foto__etiqueta">Fotografía · 3:4</span><img src="img/linea-regalos.jpg" alt="" onload="this.parentElement.classList.add('con-foto')" onerror="this.remove()"></span>
+        <span class="linea__pie"><span class="linea__nombre">Bombones y regalos</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== PIEZA DE TEMPORADA =============== -->
+<section id="temporada" class="temporada">
+  <div class="temporada__inner">
+    <!-- FOTO: img/temporada.jpg -->
+    <div class="foto"><span class="foto__etiqueta">Fotografía · Pieza de temporada · 21:9</span><img src="img/temporada.jpg" alt="Tarta de higo, cacao y miel de caña" onload="this.parentElement.classList.add('con-foto')" onerror="this.remove()"></div>
+    <div class="temporada__tarjeta">
+      <span class="eyebrow eyebrow--dorado">Solo esta temporada</span>
+      <h2 class="serif">Higo, cacao<br><em>y miel de caña</em></h2>
+      <p>Masa sablée de cacao, crema de miel y higos asados lentamente. Disponible mientras dure la cosecha.</p>
+      <a href="#encargos" class="boton boton--oscuro">Reservar <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- =============== ENCARGOS =============== -->
+<section id="encargos" class="encargos">
+  <span class="encargos__aro" aria-hidden="true"></span>
+  <span class="encargos__aro encargos__aro--2" aria-hidden="true"></span>
+  <div class="contenedor encargos__inner">
+    <div class="encargos__titulo">
+      <span class="eyebrow eyebrow--dorado">Encargos</span>
+      <h2 class="serif">Una pieza única<br><em>para su ocasión</em></h2>
+    </div>
+    <div class="encargos__accion">
+      <p class="parrafo">Bodas, aniversarios y eventos privados. Coordinamos una degustación previa y diseñamos la pieza con usted.</p>
+      <div class="encargos__botones">
+        <a href="https://wa.me/51999999999?text=Hola%20Velluto%2C%20quisiera%20solicitar%20una%20consulta%20para%20un%20encargo%20(boda%2C%20aniversario%20o%20evento)." class="boton boton--dorado" target="_blank" rel="noopener">Solicitar consulta <span aria-hidden="true">→</span></a>
+        <a href="https://wa.me/51999999999?text=Hola%20Velluto%2C%20quisiera%20hacer%20una%20consulta." class="boton boton--borde-oscuro" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- =============== FOOTER =============== -->
+<footer id="contacto" class="footer">
+  <div class="contenedor footer__inner">
+    <div class="footer__fila">
+      <div class="footer__marca">
+        <span class="marca"><img class="marca__logo" src="img/monograma.png" alt="" width="52" height="52"><span class="marca__texto"><span class="marca__nombre">Velluto</span><span class="marca__sub">Pastelería</span></span></span>
+        <p>Repostería de autor, elaborada a mano cada día.</p>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col"><span class="footer__titulo">Carta</span><a href="#coleccion">Tortas</a><a href="#coleccion">Individuales</a><a href="#coleccion">Regalos</a></div>
+        <div class="footer__col"><span class="footer__titulo">Contacto</span><span>Av. Larco 123, Miraflores · Lima</span><a href="https://wa.me/51999999999?text=Hola%20Velluto%2C%20quisiera%20hacer%20una%20consulta." target="_blank" rel="noopener">+51 999 999 999</a><span>Lun a sáb · 9:00 – 20:00</span></div>
+        <div class="footer__col"><span class="footer__titulo">Síganos</span><span>Instagram</span><span>TikTok</span><span>Pinterest</span></div>
+      </div>
+    </div>
+    <div class="footer__legal"><span>© 2026 Velluto</span><span>Términos · Privacidad · Libro de reclamaciones</span></div>
+  </div>
+</footer>
+
+<script>
+/* Pestañas de "Líneas de repostería": Todas muestra las tres; las otras muestran solo su línea. */
+(function () {
+  var tabs = document.querySelectorAll('.pestanas button'), tarjetas = document.querySelectorAll('.lineas__grid .linea');
+  [].forEach.call(tabs, function (t, i) {
+    t.addEventListener('click', function () {
+      [].forEach.call(tabs, function (x) { x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
+      [].forEach.call(tarjetas, function (c, k) { c.style.display = (i === 0 || i === k + 1) ? '' : 'none'; });
+    });
+  });
+})();
+</script>
+<script>
+/* Alinea el lema de la marca (Pastelería) al ancho exacto del nombre, en el encabezado y en el pie. */
+(function () {
+  function alinear() {
+    [].forEach.call(document.querySelectorAll('.marca'), function (m) {
+      var n = m.querySelector('.marca__nombre'), s = m.querySelector('.marca__sub'); if (!n || !s) return;
+      function ancho(el) { var r = document.createRange(); r.selectNodeContents(el); return r.getBoundingClientRect().width; }
+      var ls = parseFloat(getComputedStyle(n).letterSpacing) || 0, letras = s.textContent.length;
+      s.style.letterSpacing = '0px';
+      var natural = ancho(s), objetivo = ancho(n) - ls;
+      if (letras > 1 && objetivo > natural) s.style.letterSpacing = ((objetivo - natural) / (letras - 1)) + 'px';
+    });
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(alinear); else window.addEventListener('load', alinear);
+  window.addEventListener('resize', alinear);
+})();
+</script>
+</body>
+</html>

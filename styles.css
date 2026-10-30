@@ -1,0 +1,340 @@
+/* =========================================================
+   PASTELERÍA DE AUTOR — Landing "Boutique oscura"
+   Fuente de verdad del diseño. Ver CLAUDE.md antes de editar.
+   ========================================================= */
+
+/* ---------- 1. TOKENS (no cambiar valores) ---------- */
+:root {
+  /* Paleta oficial (HEX exactos del cliente) */
+  --chocolate: #3B251F;
+  --cacao: #82543D;
+  --dorado: #D7B978;
+  --marfil: #F7EFE3;
+
+  /* Matices derivados SOLO para luz y volumen (no son colores nuevos de marca) */
+  --chocolate-profundo: #2A1915;
+  --cacao-luz: #9A6A50;
+  --cacao-sombra: #5E3A2B;
+  --dorado-luz: #E4CC96;
+  --dorado-sombra: #C4A35F;
+  --marfil-sombra: #F0E4D2;
+
+  /* Texto con transparencia */
+  --marfil-82: rgba(247, 239, 227, 0.82);
+  --marfil-72: rgba(247, 239, 227, 0.72);
+  --marfil-50: rgba(247, 239, 227, 0.5);
+  --marfil-15: rgba(247, 239, 227, 0.15);
+  --choco-82: rgba(59, 37, 31, 0.82);
+  --choco-18: rgba(59, 37, 31, 0.18);
+
+  /* Fondos con luz */
+  --fondo-hero:
+    radial-gradient(ellipse 55% 75% at 74% 42%, rgba(130, 84, 61, 0.55) 0%, rgba(130, 84, 61, 0) 70%),
+    linear-gradient(115deg, rgba(247, 239, 227, 0) 28%, rgba(247, 239, 227, 0.05) 40%, rgba(247, 239, 227, 0) 52%),
+    radial-gradient(ellipse 40% 50% at 12% 0%, rgba(215, 185, 120, 0.10) 0%, rgba(215, 185, 120, 0) 70%),
+    linear-gradient(180deg, var(--chocolate) 0%, var(--chocolate-profundo) 100%);
+  --fondo-panel-marfil:
+    radial-gradient(ellipse 50% 60% at 0% 0%, rgba(215, 185, 120, 0.16) 0%, rgba(215, 185, 120, 0) 70%),
+    linear-gradient(180deg, var(--marfil) 0%, var(--marfil-sombra) 100%);
+  --fondo-coleccion:
+    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(130, 84, 61, 0.45) 0%, rgba(130, 84, 61, 0) 70%),
+    var(--chocolate);
+  --fondo-lineas: linear-gradient(135deg, var(--cacao-luz) 0%, var(--cacao) 45%, var(--cacao-sombra) 100%);
+  --fondo-temporada:
+    radial-gradient(ellipse 60% 60% at 30% 30%, rgba(130, 84, 61, 0.35) 0%, rgba(130, 84, 61, 0) 70%),
+    linear-gradient(180deg, var(--chocolate-profundo) 0%, var(--chocolate) 100%);
+  --fondo-encargos:
+    radial-gradient(ellipse 45% 70% at 100% 50%, rgba(215, 185, 120, 0.22) 0%, rgba(215, 185, 120, 0) 70%),
+    linear-gradient(180deg, var(--marfil) 0%, var(--marfil-sombra) 100%);
+  --fondo-footer:
+    radial-gradient(ellipse 50% 60% at 85% 0%, rgba(130, 84, 61, 0.35) 0%, rgba(130, 84, 61, 0) 70%),
+    var(--chocolate-profundo);
+
+  /* Marcadores de fotografía (se reemplazan por la foto) */
+  --foto-cacao: radial-gradient(ellipse at 58% 38%, var(--cacao-luz) 0%, var(--cacao) 42%, var(--cacao-sombra) 100%);
+  --foto-chocolate: radial-gradient(ellipse at 55% 40%, #4A2F27 0%, var(--chocolate) 50%, var(--chocolate-profundo) 100%);
+
+  /* Botón dorado con volumen (sin brillo metálico) */
+  --boton-dorado: linear-gradient(180deg, var(--dorado-luz) 0%, var(--dorado) 55%, var(--dorado-sombra) 100%);
+  --sombra-dorada: 0 12px 30px -12px rgba(215, 185, 120, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  --sombra-foto: 0 40px 80px -40px rgba(0, 0, 0, 0.6);
+
+  /* Tipografía y medidas */
+  --serif: 'Bodoni Moda', Georgia, 'Times New Roman', serif;
+  --sans: 'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ancho: 1280px;
+  --gutter: 32px;
+  --radio: 28px;
+  --radio-sm: 20px;
+}
+
+/* ---------- 2. BASE ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--sans); color: var(--marfil); background: var(--chocolate); -webkit-font-smoothing: antialiased; }
+main, footer { display: block; overflow-x: clip; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3, p { margin: 0; }
+button, input { font-family: inherit; }
+.contenedor { max-width: var(--ancho); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+.serif { font-family: var(--serif); font-weight: 400; }
+:focus-visible { outline: 2px solid var(--dorado); outline-offset: 3px; }
+
+/* ---------- 3. COMPONENTES ---------- */
+.eyebrow { display: flex; align-items: center; gap: 16px; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; }
+.eyebrow::after { content: ""; width: 72px; height: 1px; background: currentColor; opacity: 0.45; }
+.eyebrow--dorado::after { background: var(--dorado); opacity: 1; }
+
+.boton { display: inline-flex; align-items: center; gap: 12px; font-size: 15px; padding: 17px 28px; border-radius: 999px; text-decoration: none; border: none; cursor: pointer; transition: transform .25s ease, filter .25s ease, background-color .25s ease, color .25s ease; }
+.boton:hover { transform: translateY(-2px); }
+.boton--dorado { background: var(--boton-dorado); color: var(--chocolate); font-weight: 500; box-shadow: var(--sombra-dorada); }
+.boton--dorado:hover { filter: brightness(1.05); color: var(--chocolate); }
+.boton--borde-claro { color: var(--marfil); border: 1px solid var(--marfil-50); padding: 16px 28px; }
+.boton--borde-claro:hover { background: var(--marfil-15); color: var(--marfil); }
+.boton--borde-oscuro { color: var(--chocolate); border: 1px solid var(--chocolate); padding: 16px 28px; }
+.boton--borde-oscuro:hover { background: var(--chocolate); color: var(--marfil); }
+.boton--oscuro { background: var(--chocolate); color: var(--marfil); }
+.boton--oscuro:hover { background: var(--chocolate-profundo); color: var(--marfil); }
+.boton--cacao { background: var(--cacao); color: var(--marfil); font-size: 14px; padding: 14px 22px; }
+.boton--cacao:hover { background: var(--cacao-luz); color: var(--marfil); }
+
+.enlace-linea { text-decoration: none; padding: 10px 0; border-bottom: 1px solid var(--dorado); font-weight: 300; }
+.enlace-linea:hover { color: var(--dorado); }
+
+/* Espacio de fotografía: muestra un fondo con luz hasta que exista el archivo en /img */
+.foto { position: relative; overflow: hidden; background: var(--foto-cacao); }
+.foto--chocolate { background: var(--foto-chocolate); }
+.foto > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.foto__etiqueta { position: absolute; left: 16px; bottom: 14px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--marfil-72); z-index: 0; }
+.foto.con-foto > .foto__etiqueta { display: none; }
+
+/* ---------- 4. HEADER + HERO ---------- */
+.zona-hero { background: var(--fondo-hero); }
+.header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding-top: 28px; padding-bottom: 28px; }
+.marca { text-decoration: none; display: flex; flex-direction: column; gap: 4px; line-height: 1; }
+.marca__nombre { font-family: var(--serif); font-size: 24px; letter-spacing: 3px; text-transform: uppercase; }
+.marca__sub { font-size: 10px; letter-spacing: 6px; text-transform: uppercase; color: var(--marfil-72); }
+.nav { display: flex; flex-wrap: wrap; gap: 36px; font-size: 15px; font-weight: 300; }
+.nav a { text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.nav a:hover { color: var(--dorado); }
+.nav a[aria-current="page"] { color: var(--dorado); border-bottom-color: var(--dorado); }
+.header__acciones { display: flex; align-items: center; gap: 18px; }
+.header__cuenta { font-size: 14px; font-weight: 300; text-decoration: none; padding: 12px 4px; }
+
+.hero { display: flex; flex-wrap: wrap; align-items: stretch; gap: 48px; padding-top: 32px; }
+.hero__texto { flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 30px; padding: 40px 0 80px; }
+.hero__eyebrow { color: var(--marfil-72); }
+.hero__titulo { font-family: var(--serif); font-weight: 400; font-size: clamp(56px, 6.6vw, 104px); line-height: 0.95; letter-spacing: -2px; }
+.hero__titulo em { color: var(--dorado); }
+.hero__desc { font-size: 18px; line-height: 1.65; font-weight: 300; color: var(--marfil-82); max-width: 420px; }
+.hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero__nota { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 300; color: var(--marfil-72); }
+.hero__nota::before { content: ""; width: 6px; height: 6px; border-radius: 999px; background: var(--dorado); box-shadow: 0 0 12px rgba(215, 185, 120, 0.8); }
+.hero__foto { flex: 1.3 1 560px; min-width: 0; min-height: 640px; border-radius: var(--radio) var(--radio) 0 0; box-shadow: var(--sombra-foto); }
+.hero__foto .foto__etiqueta { top: 22px; bottom: auto; left: 24px; }
+.destacada { position: absolute; right: 28px; bottom: 36px; z-index: 2; display: flex; align-items: center; gap: 16px; }
+.destacada__punto { width: 6px; height: 6px; border-radius: 999px; background: var(--marfil); }
+.destacada__linea { width: 56px; height: 1px; background: var(--marfil-50); }
+.destacada__texto { display: flex; flex-direction: column; gap: 4px; font-size: 18px; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35); }
+.destacada__texto em { font-family: var(--serif); font-size: 14px; color: var(--marfil-82); }
+
+/* ---------- 5. PANEL MARFIL: PILARES + FILOSOFÍA ---------- */
+.panel-marfil { background: var(--fondo-panel-marfil); color: var(--chocolate); border-radius: 40px 40px 0 0; margin-top: -1px; position: relative; }
+.pilares { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding-top: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--choco-18); }
+.pilar { padding: 8px 32px 24px; display: flex; flex-direction: column; gap: 10px; border-left: 1px solid var(--choco-18); }
+.pilar:first-child { padding-left: 0; border-left: none; }
+.pilar:last-child { padding-right: 0; }
+.pilar__num { font-size: 13px; color: var(--cacao); }
+.pilar h3 { font-family: var(--serif); font-weight: 400; font-size: 24px; }
+.pilar p { font-size: 15px; font-weight: 300; color: var(--choco-82); }
+
+.filosofia { display: flex; flex-wrap: wrap; gap: 72px; align-items: center; padding-top: 104px; padding-bottom: 120px; }
+.filosofia__foto { flex: 1.1 1 520px; min-width: 0; aspect-ratio: 6 / 5; border-radius: var(--radio); box-shadow: 0 40px 70px -40px rgba(59, 37, 31, 0.55); }
+.filosofia__texto { flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 26px; align-items: flex-start; }
+.filosofia__texto .eyebrow { color: var(--cacao); }
+.titulo-seccion { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 4.4vw, 64px); line-height: 1.02; letter-spacing: -1px; }
+.parrafo { font-size: 17px; line-height: 1.8; font-weight: 300; }
+.filosofia__texto .parrafo { color: var(--choco-82); }
+
+/* ---------- 6. COLECCIÓN FIRMA ---------- */
+.coleccion { background: var(--fondo-coleccion); }
+.coleccion__inner { padding-top: 112px; padding-bottom: 112px; display: flex; flex-direction: column; gap: 52px; }
+.cabecera { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; }
+.cabecera > div:first-child { display: flex; flex-direction: column; gap: 16px; }
+.coleccion .eyebrow { color: var(--marfil-72); }
+.coleccion .titulo-seccion em { color: var(--dorado); }
+.productos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+.producto { display: flex; flex-direction: column; gap: 18px; }
+.producto .foto { aspect-ratio: 4 / 5; border-radius: var(--radio-sm); box-shadow: 0 30px 60px -36px rgba(0, 0, 0, 0.7); }
+.producto:hover .foto > img { transform: scale(1.04); }
+.producto h3 { font-family: var(--serif); font-weight: 400; font-size: 22px; }
+.producto p { font-size: 14px; font-weight: 300; line-height: 1.6; color: var(--marfil-72); margin-top: 6px; }
+.producto__pie { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid var(--marfil-15); }
+.producto__precio { color: var(--dorado); }
+.producto__pie a { font-size: 14px; text-decoration: none; }
+.producto__pie a:hover { color: var(--dorado); }
+
+/* ---------- 7. LÍNEAS DE REPOSTERÍA ---------- */
+.lineas { background: var(--fondo-lineas); }
+.lineas__inner { padding-top: 112px; padding-bottom: 112px; display: flex; flex-direction: column; gap: 48px; }
+.lineas .titulo-seccion { line-height: 1; }
+.pestanas { display: flex; flex-wrap: wrap; gap: 28px; }
+.pestanas button { font-size: 15px; font-weight: 300; color: var(--marfil-82); background: none; border: none; border-bottom: 1px solid transparent; padding: 10px 0; min-height: 44px; cursor: pointer; }
+.pestanas button[aria-selected="true"] { color: var(--marfil); font-weight: 400; border-bottom-color: var(--dorado); }
+.lineas__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.linea { display: flex; flex-direction: column; gap: 18px; text-decoration: none; }
+.linea .foto { aspect-ratio: 3 / 4; border-radius: var(--radio-sm); box-shadow: 0 30px 60px -36px rgba(0, 0, 0, 0.6); }
+.linea:hover .foto > img { transform: scale(1.04); }
+.linea__pie { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.linea__nombre { font-family: var(--serif); font-size: 28px; }
+.linea:hover .linea__nombre { color: var(--dorado-luz); }
+
+/* ---------- 8. PIEZA DE TEMPORADA ---------- */
+.temporada { background: var(--fondo-temporada); padding: 112px var(--gutter); }
+.temporada__inner { max-width: var(--ancho); margin: 0 auto; position: relative; }
+.temporada .foto { width: 100%; aspect-ratio: 21 / 9; min-height: 420px; border-radius: var(--radio); box-shadow: var(--sombra-foto); }
+.temporada .foto__etiqueta { left: auto; right: 24px; top: 22px; bottom: auto; }
+.temporada__tarjeta { position: relative; z-index: 2; margin: -180px 0 0 48px; max-width: 480px; background: var(--marfil); color: var(--chocolate); border-radius: 24px; padding: 44px; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.55); }
+.temporada__tarjeta .eyebrow { color: var(--cacao); }
+.temporada__tarjeta h2 { font-size: clamp(34px, 3.4vw, 48px); line-height: 1.05; }
+.temporada__tarjeta p { font-size: 16px; line-height: 1.75; font-weight: 300; color: var(--choco-82); }
+
+/* ---------- 9. ENCARGOS (llamada a la acción) ---------- */
+.encargos { background: var(--fondo-encargos); color: var(--chocolate); position: relative; overflow: hidden; }
+.encargos__aro { position: absolute; right: -160px; top: 50%; width: 520px; height: 520px; margin-top: -260px; border-radius: 999px; border: 1px solid rgba(215, 185, 120, 0.7); pointer-events: none; }
+.encargos__aro--2 { right: -100px; width: 400px; height: 400px; margin-top: -200px; opacity: 0.6; }
+.encargos__inner { position: relative; padding-top: 120px; padding-bottom: 120px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 48px; }
+.encargos__titulo { flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+.encargos__titulo .eyebrow { color: var(--cacao); }
+.encargos__titulo h2 { font-size: clamp(44px, 5.2vw, 80px); line-height: 0.98; letter-spacing: -1.5px; }
+.encargos__titulo em { color: var(--cacao); }
+.encargos__accion { flex: 0 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+.encargos__accion .parrafo { color: var(--choco-82); }
+.encargos__botones { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* ---------- 10. FOOTER ---------- */
+.footer { background: var(--fondo-footer); }
+.footer__inner { padding-top: 88px; padding-bottom: 32px; display: flex; flex-direction: column; gap: 64px; }
+.footer__fila { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 48px; }
+.footer__marca { flex: 1 1 320px; display: flex; flex-direction: column; gap: 24px; }
+.footer__marca .marca__nombre { font-size: 30px; letter-spacing: 4px; }
+.footer__marca .marca__sub { font-size: 11px; letter-spacing: 7px; }
+.footer__marca p { font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--marfil-72); max-width: 320px; }
+.footer__cols { flex: 2 1 560px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 32px; font-size: 15px; font-weight: 300; }
+.footer__col { display: flex; flex-direction: column; gap: 12px; }
+.footer__col span { color: var(--marfil-82); }
+.footer__col .footer__titulo { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--dorado); font-weight: 400; }
+.footer__col a { text-decoration: none; }
+.footer__col a:hover { color: var(--dorado); }
+.footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; border-top: 1px solid var(--marfil-15); padding-top: 24px; font-size: 13px; font-weight: 300; color: var(--marfil-72); }
+
+/* ---------- 11. RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .nav { order: 3; width: 100%; gap: 24px; }
+  .hero__foto { min-height: 520px; }
+  .pilares { grid-template-columns: 1fr; }
+  .pilar, .pilar:first-child, .pilar:last-child { padding: 20px 0; border-left: none; border-top: 1px solid var(--choco-18); }
+  .pilar:first-child { border-top: none; }
+}
+@media (max-width: 600px) {
+  :root { --gutter: 20px; --radio: 22px; }
+  .header__cuenta { display: none; }
+  .nav { gap: 22px; font-size: 14px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+  .header { gap: 16px; }
+  .header .boton--cacao { padding: 12px 16px; font-size: 13px; }
+  .marca__nombre { font-size: 20px; }
+  .hero__texto { padding: 16px 0 40px; }
+  .hero__foto { min-height: 440px; }
+  .destacada { right: 16px; bottom: 20px; }
+  .panel-marfil { border-radius: 28px 28px 0 0; }
+  .filosofia { gap: 40px; padding-top: 64px; padding-bottom: 80px; }
+  .coleccion__inner, .lineas__inner { padding-top: 80px; padding-bottom: 80px; }
+  .temporada { padding-top: 80px; padding-bottom: 80px; }
+  .temporada .foto { min-height: 300px; }
+  .temporada__tarjeta { margin: -80px 12px 0; padding: 32px 26px; }
+  .encargos__inner { padding-top: 88px; padding-bottom: 88px; }
+  .encargos__aro { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+
+/* ---------- 12. PORTADA A PANTALLA COMPLETA ----------
+   Pedido del dueño (2026-10-30): la portada es UNA foto que ocupa todo el ancho, con el lado izquierdo oscuro y vacío
+   para el texto, como la referencia. Solo en pantallas anchas; en celular la foto sigue debajo del texto.
+   Sin colores nuevos: el velo usa el chocolate profundo de la paleta. */
+:root {
+  --velo-hero: linear-gradient(90deg, rgba(42, 25, 21, 0.96) 0%, rgba(42, 25, 21, 0.82) 30%, rgba(42, 25, 21, 0.3) 56%, rgba(42, 25, 21, 0) 74%);
+  --velo-hero-abajo: linear-gradient(0deg, rgba(42, 25, 21, 0.55) 0%, rgba(42, 25, 21, 0) 22%);
+}
+@media (min-width: 901px) {
+  .zona-hero { position: relative; overflow: hidden; padding-bottom: 40px; }
+  .zona-hero .header { position: relative; z-index: 3; }
+  .hero { min-height: clamp(600px, 52vw, 800px); }
+  .hero__texto { z-index: 2; flex: 0 1 560px; max-width: 560px; }
+  .hero__foto { position: absolute; inset: 0; z-index: 0; min-height: 0; border-radius: 0; box-shadow: none; }
+  .hero__foto > img { object-position: 78% 50%; }
+  .hero__foto::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: var(--velo-hero), var(--velo-hero-abajo); }
+  .hero__foto .foto__etiqueta { left: auto; right: 28px; top: 120px; }
+  .destacada { z-index: 3; right: 40px; bottom: 84px; }
+  .panel-marfil { margin-top: -40px; }
+}
+
+/* ---------- 13. BOTÓN PEDIR (pedido del dueño 2026-10-30) ----------
+   Antes estaba a la derecha del precio y su flecha parecía señalar el precio de la tarjeta vecina.
+   Ahora va debajo del precio, alineado a la izquierda, con una línea fina dorada. */
+.producto__pie { flex-direction: column; align-items: flex-start; gap: 12px; }
+.producto__pie a { padding-bottom: 3px; border-bottom: 1px solid var(--dorado); font-weight: 300; }
+
+/* Portada en tablet y celular: la foto horizontal se encuadra sobre su lado derecho (donde está el postre) */
+@media (max-width: 900px) { .hero__foto > img { object-position: 92% 50%; } }
+
+/* ---------- 14. PORTADA EN CELULAR Y TABLET ----------
+   Pedido del dueño (2026-10-30): en celular la portada es UN solo contenedor (título, textos, botones y foto juntos), como en escritorio.
+   Para eso se usa una segunda foto VERTICAL (hero-movil.jpg): arriba queda vacía y oscura (ahí va el texto) y el postre abajo.
+   Si hero-movil.jpg no existe, se usa la foto horizontal enmarcada a la derecha. */
+:root {
+  --velo-hero-movil: linear-gradient(180deg, rgba(42, 25, 21, 0.94) 0%, rgba(42, 25, 21, 0.84) 36%, rgba(42, 25, 21, 0.25) 62%, rgba(42, 25, 21, 0) 76%);
+}
+.hero__img-movil { display: none; }
+@media (max-width: 900px) {
+  .zona-hero { position: relative; overflow: hidden; padding-bottom: 28px; }
+  .zona-hero .header { position: relative; z-index: 3; }
+  .hero { min-height: 790px; }
+  .hero__texto { z-index: 2; gap: 22px; padding: 28px 0 0; flex: 1 1 100%; justify-content: flex-start; }
+  .hero__foto { position: absolute; inset: 0; z-index: 0; min-height: 0; border-radius: 0; box-shadow: none; }
+  .hero__foto::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: var(--velo-hero-movil); }
+  .hero__foto.con-movil > img:not(.hero__img-movil) { display: none; }
+  .hero__foto.con-movil > .hero__img-movil { display: block; object-position: 50% 100%; }
+  .hero__foto .foto__etiqueta { left: 20px; top: auto; bottom: 24px; }
+  .destacada { z-index: 3; right: 16px; bottom: 44px; }
+  .panel-marfil { margin-top: -28px; }
+}
+@media (max-width: 600px) { .destacada { display: none; } }
+
+/* ---------- 15. PIEZA DESTACADA OCULTA (pedido del dueño 2026-10-30) ----------
+   El texto caía justo sobre el reflejo de la tarta y se perdía. El HTML se conserva por si se quiere volver a mostrar: basta quitar esta regla. */
+.destacada { display: none; }
+
+/* ---------- 16. LÍNEAS SIN ENLACE (pedido del dueño 2026-10-30) ----------
+   Las tres tarjetas de Líneas de repostería son solo informativas: sin flecha, sin enlace y sin zoom al pasar el mouse. */
+.linea { cursor: default; }
+.linea:hover .foto > img { transform: none; }
+
+/* ---------- 17. LOGO JUNTO AL NOMBRE (pedido del dueño 2026-10-30) ----------
+   El monograma V va a la izquierda del nombre, en el encabezado y el pie. El texto conserva su diseño y su alineación. */
+.marca { flex-direction: row; align-items: center; gap: 14px; }
+.marca__texto { display: flex; flex-direction: column; gap: 4px; line-height: 1; }
+.marca__logo { display: block; width: 44px; height: 44px; flex: none; }
+.footer__marca .marca__logo { width: 52px; height: 52px; }
+@media (max-width: 600px) { .marca__logo { width: 38px; height: 38px; } .marca { gap: 11px; } }
+
+/* ---------- 18. FILTRO DE LÍNEAS: la tarjeta conserva su tamaño ----------
+   Con auto-fit, al filtrar quedaba una sola tarjeta y se estiraba a todo el ancho. Con auto-fill las columnas se conservan. */
+.lineas__grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+
+/* ---------- 19. TEMPORADA EN CELULAR ----------
+   En pantalla angosta la tarjeta de texto tapaba casi toda la tarta. La foto es más alta y se encuadra sobre la tarta (a la derecha). */
+@media (max-width: 600px) {
+  .temporada .foto { min-height: 400px; }
+  .temporada .foto > img { object-position: 80% 40%; }
+}
