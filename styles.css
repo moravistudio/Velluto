@@ -354,3 +354,7 @@ button, input { font-family: inherit; }
   .producto h3 { font-size: 20px; }
   .productos::after { content: ""; flex: 0 0 1px; }
 }
+
+/* Firma de Moravi Studio (mismo texto que Libraica) */
+.firma-moravi { margin: -44px 0 0; text-align: center; font-size: 12px; line-height: 1.5; color: var(--marfil-72); }
+.firma-moravi a { color: var(--marfil-82); text-decoration: underline; text-underline-offset: 2px; }
