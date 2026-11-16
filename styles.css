@@ -310,6 +310,16 @@ button, input { font-family: inherit; }
   .panel-marfil { margin-top: -28px; }
 }
 @media (max-width: 600px) { .destacada { display: none; } }
+/* Celular (pedido del dueño, 2026-11-16): los botones y la nota NO van sobre la torta. Van en UNA sola fila, en la zona oscura
+   donde termina la base de la torta, y la nota de entrega justo debajo. La torta queda libre. */
+@media (max-width: 600px) {
+  .hero { position: relative; }
+  .hero__texto { position: static; }
+  .hero__ctas { position: absolute; left: 18px; right: 18px; top: calc(70% + 62px); margin: 0; flex-wrap: nowrap; gap: 10px; z-index: 3; }
+  .hero__ctas .boton { white-space: nowrap; padding: 13px 16px; font-size: 14px; }
+  .hero__ctas .boton--borde-claro { background: rgba(14, 8, 5, 0.82); }
+  .hero__nota { position: absolute; left: 18px; right: 18px; top: calc(70% + 126px); margin: 0; z-index: 3; color: var(--marfil-82); }
+}
 
 /* ---------- 15. PIEZA DESTACADA OCULTA (pedido del dueño 2026-10-30) ----------
    El texto caía justo sobre el reflejo de la tarta y se perdía. El HTML se conserva por si se quiere volver a mostrar: basta quitar esta regla. */
